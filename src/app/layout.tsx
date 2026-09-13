@@ -8,7 +8,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Lama Dev School Management Dashboard",
+  title: "InterApp - Siber",
   description: "Next.js School Management System",
 };
 

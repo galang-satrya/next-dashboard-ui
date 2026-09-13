@@ -50,14 +50,26 @@ const menuItems: MenuEntry[] = [
       { label: 'Deactive', href: '#' },
     ],
   },
-
   { group: 'Academics' },
   { label: 'Classes', icon: LayoutDashboard, href: '#' },
-  { label: 'Grade', icon: LayoutDashboard, href: '#' },
+  {
+    label: 'Lesson',
+    icon: Users,
+    submenu: [
+      { label: 'Exams', href: '#' },
+      { label: 'Attendance', href: '#' },
+      { label: 'Assignment', href: '#' },
+      { label: 'Grade', href: '#' },
+      { label: 'Achivement', href: '#' },
+    ],
+  },
+  { label: 'Evennts', icon: LayoutDashboard, href: '#' },
+  { label: 'Message', icon: LayoutDashboard, href: '#' },
 
-  { group: 'Account' },
+  { group: 'Other and Account' },
   { label: 'Profile', icon: LayoutDashboard, href: '#' },
   { label: 'Settings', icon: Settings, href: '#' },
+  { label: 'Logout', icon: LayoutDashboard, href: '#' },
 ];
 
 const SidebarMenu = () => {
@@ -68,14 +80,14 @@ const SidebarMenu = () => {
   };
 
   return (
-    <aside className="w-64 h-screen bg-[#2F3646] border-gray-200 flex flex-col">
-      <nav className="flex-1 overflow-y-auto py-4 space-y-1">
+    <aside className="w-29 h-screen bg-[#2F3646] border-gray-200 flex flex-col">
+      <nav className="flex-1 overflow-y-auto py-[3px] space-y-1">
         {menuItems.map((item, index) => {
           if ('group' in item) {
             return (
               <div
                 key={`group-${index}`}
-                className="px-3 pt-4 pb-1 text-xs font-medium text-[#6b7280] first:pt-2"
+                className="px-3 py-[3px] text-xs font-medium text-[#6b7280] first:pt-2"
               >
                 {item.group}
               </div>
@@ -91,7 +103,7 @@ const SidebarMenu = () => {
               {hasSubmenu ? (
                 <button
                   onClick={() => toggleMenu(item.label)}
-                  className="w-full flex items-center justify-between px-3 py-2 rounded-lg text-sm text-[#9AA1A7] hover:bg-[#262c39] transition-colors"
+                  className="w-full flex items-center justify-between px-3 py-[3px] rounded-lg text-sm text-[#9AA1A7] hover:bg-[#262c39] transition-colors"
                 >
                   <span className="flex items-center gap-3">
                     <Icon size={18} />
@@ -105,7 +117,7 @@ const SidebarMenu = () => {
               ) : (
                 <a
                   href={item.href}
-                  className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-sm text-[#9AA1A7] hover:bg-[#262c39] transition-colors"
+                  className="w-full flex items-center gap-3 px-3 py-[3px] rounded-lg text-sm text-[#9AA1A7] hover:bg-[#262c39] transition-colors"
                 >
                   <Icon size={18} />
                   {item.label}
@@ -122,7 +134,7 @@ const SidebarMenu = () => {
                       <a
                         key={sub.label}
                         href={sub.href}
-                        className="block px-2 py-1.5 rounded-md text-sm text-[#9AA1A7] hover:text-white hover:bg-[#262c39] transition-colors"
+                        className="block py-[3px] rounded-md text-sm text-[#9AA1A7] hover:text-white hover:bg-[#262c39] transition-colors"
                       >
                         {sub.label}
                       </a>
